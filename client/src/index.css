@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Designtokens (designspec §9.2) – komponenter refererar endast tokens. */
+:root {
+  --background: #FAF9F7;
+  --foreground: #22302B;
+  --primary: #1F4038;
+  --primary-dark: #16302A;
+  --primary-foreground: #FFFFFF;
+  --secondary: #E8E4DC;
+  --accent: #C9A87C;
+  --accent-soft: #F3EAD9;
+  --muted: #F1EFEA;
+  --muted-foreground: #5D6B64;
+  --card: #FFFFFF;
+  --destructive: #B3261E;
+  --border: #E2DED6;
+  --input: #E2DED6;
+  --ring: #1F4038;
+  --radius: 0.75rem;
+  --status-ny: #2563EB;
+  --status-pagaende: #B45309;
+  --status-vantar: #6B7280;
+  --status-atgardad: #15803D;
+  --status-stangd: #374151;
+
+  /* RGB-tripletter för Tailwinds opacity-modifierare (samma kulörer som ovan). */
+  --background-rgb: 250 249 247;
+  --foreground-rgb: 34 48 43;
+  --primary-rgb: 31 64 56;
+  --primary-dark-rgb: 22 48 42;
+  --primary-foreground-rgb: 255 255 255;
+  --secondary-rgb: 232 228 220;
+  --accent-rgb: 201 168 124;
+  --accent-soft-rgb: 243 234 217;
+  --muted-rgb: 241 239 234;
+  --muted-foreground-rgb: 93 107 100;
+  --card-rgb: 255 255 255;
+  --destructive-rgb: 179 38 30;
+  --border-rgb: 226 222 214;
+  --status-ny-rgb: 37 99 235;
+  --status-pagaende-rgb: 180 83 9;
+  --status-vantar-rgb: 107 114 128;
+  --status-atgardad-rgb: 21 128 61;
+  --status-stangd-rgb: 55 65 81;
+}
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+body { @apply bg-bg text-ink font-sans antialiased; }
+:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+@layer components {
+  .container-site { @apply mx-auto max-w-site px-4 sm:px-6 lg:px-8; }
+  .section { @apply py-16 md:py-24; }
+  .h1 { @apply text-4xl md:text-5xl lg:text-[3.4rem] font-bold leading-[1.1] tracking-tight; }
+  .h2 { @apply text-3xl md:text-4xl font-bold leading-tight tracking-tight; }
+  .h3 { @apply text-xl md:text-2xl font-semibold leading-snug; }
+  .ingress { @apply text-lg md:text-xl text-muted-ink leading-relaxed; }
+  .overline-badge { @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-primary; }
+
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded font-semibold transition-colors duration-150 px-5 py-3 text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-60 disabled:pointer-events-none; }
+  .btn-primary { @apply btn bg-primary text-primary-ink hover:bg-primary-dark; }
+  .btn-secondary { @apply btn bg-secondary text-ink hover:bg-[#DDD7CB]; }
+  .btn-outline { @apply btn border border-line bg-card text-ink hover:border-primary hover:text-primary; }
+  .btn-ghost { @apply btn px-3 py-2 text-primary hover:bg-muted; }
+  .btn-destructive { @apply btn bg-destructive text-white hover:bg-[#951F19]; }
+  .btn-sm { @apply px-3.5 py-2 text-sm; }
+
+  .card { @apply bg-card rounded-xl border border-line shadow-card; }
+  .card-hover { @apply transition-all duration-200 hover:shadow-lift hover:-translate-y-0.5; }
+
+  .field-label { @apply block text-sm font-medium mb-1.5; }
+  .field-input { @apply w-full rounded border border-line bg-card px-3.5 text-[15px] h-11 placeholder:text-muted-ink/70 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/25; }
+  .field-textarea { @apply field-input h-auto min-h-[7rem] py-2.5 resize-y; }
+  .field-error { @apply mt-1.5 text-sm text-destructive; }
+  .field-help { @apply mt-1.5 text-sm text-muted-ink; }
+  .input-invalid { @apply border-destructive focus:border-destructive focus:ring-destructive/20; }
+
+  .badge { @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold; }
+  .table-admin { @apply w-full text-sm; }
+  .table-admin th { @apply sticky top-0 bg-muted text-left font-semibold text-muted-ink px-3 py-2.5 whitespace-nowrap; }
+  .table-admin td { @apply px-3 py-2.5 border-t border-line align-middle; }
+  .table-admin tbody tr { @apply hover:bg-muted/60 cursor-pointer; }
+
+  .prose-fallens p { @apply mb-4 leading-relaxed; }
+}
+
+/* Leaflet-behållare */
+.leaflet-container { @apply rounded-xl z-0; font: inherit; }
+.map-marker { background: var(--primary); border: 3px solid #fff; border-radius: 9999px; box-shadow: 0 1px 4px rgb(0 0 0 / .35); }

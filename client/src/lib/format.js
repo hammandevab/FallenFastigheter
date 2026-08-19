@@ -1,0 +1,14 @@
+export const kr = (n) => (n || n === 0 ? new Intl.NumberFormat('sv-SE').format(Math.round(n)) + ' kr/mån' : '–');
+export const tal = (n) => new Intl.NumberFormat('sv-SE').format(n ?? 0);
+export const datum = (d) => (d ? new Date(d).toLocaleDateString('sv-SE', { year: 'numeric', month: 'short', day: 'numeric' }) : '–');
+export const datumTid = (d) => (d ? new Date(d).toLocaleString('sv-SE', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : '–');
+export const filstorlek = (b) => (!b ? '' : b > 1024 * 1024 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' kB');
+export const ortNamn = (o) => ({ trollhattan: 'Trollhättan', vanersborg: 'Vänersborg' }[o] || o || '');
+export const kategoriNamn = (k) => ({ vvs: 'VVS', el: 'El', varme: 'Värme', vitvaror: 'Vitvaror', dorr_fonster: 'Dörr & fönster', tvattstuga: 'Tvättstuga', gemensamma: 'Gemensamma utrymmen', annat: 'Annat' }[k] || k);
+export const statusNamn = (s) => ({ ny: 'Ny', pagaende: 'Pågående', vantar: 'Väntar', atgardad: 'Åtgärdad', stangd: 'Stängd', avvisad: 'Avvisad' }[s] || s);
+export const leadTypNamn = (t) => ({ bostad: 'Bostad', lokal: 'Lokal', forvaltning: 'Förvaltning', kontakt: 'Kontakt' }[t] || t);
+export const nyhetsKategori = (k) => ({ planerat_arbete: 'Planerat arbete', driftstorning: 'Driftstörning', forbattring: 'Förbättring', information: 'Information' }[k] || k);
+export const lokaltypNamn = (t) => ({ kontor: 'Kontor', butik: 'Butik', lager: 'Lager', verkstad: 'Verkstad', ovrigt: 'Övrigt' }[t] || t || '');
+export const rollNamn = (r) => ({ bostadssokande: 'Bostadssökande', foretag: 'Företag', hyresgast: 'Hyresgäst', fastighetsagare: 'Fastighetsägare', annat: 'Annat' }[r] || r || '');
+export const bildUrl = (b) => (b?.liten || b?.fil ? '/uploads/' + (b.liten || b.fil).replace(/^public\//, 'public/') : null);
+export const bildStorUrl = (b) => (b?.fil ? '/uploads/' + b.fil : null);
