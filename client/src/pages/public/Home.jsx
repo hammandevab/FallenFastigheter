@@ -72,7 +72,7 @@ export default function Home() {
 
       {/* 2. Lediga bostäder */}
       <Teaser rubrik="Lediga bostäder" under="Trygga hyresrätter hos en hyresvärd som bryr sig"
-        objekt={bostader.data?.objekt || []} laddar={bostader.laddar}
+        objekt={bostader.data || []} laddar={bostader.laddar}
         tomRubrik="Inga lediga bostäder publicerade just nu"
         tomText="Anmäl ditt intresse så hör vi av oss när något som passar dig blir ledigt."
         tomCta="Anmäl intresse" listLank="/bostader" listText="Se alla lediga bostäder"
@@ -81,7 +81,7 @@ export default function Home() {
       {/* 3. Lediga lokaler */}
       <div className="bg-muted/60">
         <Teaser rubrik="Lediga lokaler" under="Kontor, butik, lager eller verkstad – vi försöker hitta lösningar"
-          objekt={lokaler.data?.objekt || []} laddar={lokaler.laddar}
+          objekt={lokaler.data || []} laddar={lokaler.laddar}
           tomRubrik="Inga lediga lokaler just nu"
           tomText="Berätta vad du söker – vi återkommer när rätt lokal dyker upp eller kan skapas."
           tomCta="Berätta vad du söker" listLank="/lokaler" listText="Se alla lediga lokaler"

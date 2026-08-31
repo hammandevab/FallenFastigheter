@@ -17,8 +17,8 @@ export function ObjektLista({ typ, rubrik, ingress, filterFalt, tomRubrik, tomTe
     let aktiv = true;
     setLaddar(true);
     pub.objekt({ typ, ...filter })
-      .then((r) => aktiv && setData(r.data))
-      .catch(() => aktiv && setData({ objekt: [] }))
+      .then((r) => aktiv && setData(r.data || []))
+      .catch(() => aktiv && setData([]))
       .finally(() => aktiv && setLaddar(false));
     return () => { aktiv = false; };
   }, [typ, sp]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -29,7 +29,7 @@ export function ObjektLista({ typ, rubrik, ingress, filterFalt, tomRubrik, tomTe
     setSp(nya, { replace: true });
   };
   const harFilter = [...sp.keys()].some((k) => k !== 'sortera');
-  const objekt = data?.objekt || [];
+  const objekt = Array.isArray(data) ? data : [];
 
   return (
     <>

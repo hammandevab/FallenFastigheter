@@ -8,6 +8,7 @@ import { Unit } from '../../models/Unit.js';
 import { Tenant } from '../../models/Tenant.js';
 import { User } from '../../models/User.js';
 import { nextArendenummer } from '../../utils/seq.js';
+import { deleteRel } from '../../utils/storage.js';
 import { meddelaAnmalaren, bekraftaFelanmalan, statusNamn } from '../../services/notify.js';
 
 const r = Router();
@@ -126,6 +127,17 @@ r.get('/underlag/val', catchAsync(async (_req, res) => {
     User.find({ roll: 'admin', status: 'aktiv' }).select('namn'),
   ]);
   res.json({ success: true, data: { units, tenants, admins } });
+}));
+
+r.delete('/:id', catchAsync(async (req, res) => {
+  const f = await FaultReport.findById(req.params.id);
+  if (!f) throw new AppError('Ärendet hittades inte', 404);
+  const handelser = await FaultEvent.find({ fault: f._id });
+  for (const h of handelser) for (const b of h.bilder || []) { deleteRel(b.fil); deleteRel(b.liten); }
+  await FaultEvent.deleteMany({ fault: f._id });
+  for (const b of f.bilagor || []) { deleteRel(b.fil); deleteRel(b.liten); }
+  await f.deleteOne();
+  res.json({ success: true });
 }));
 
 export default r;

@@ -8,6 +8,7 @@ import { User } from '../../models/User.js';
 import { FaultReport } from '../../models/FaultReport.js';
 import { DocumentFile } from '../../models/DocumentFile.js';
 import { skickaInbjudan } from '../../services/notify.js';
+import { deleteRel } from '../../utils/storage.js';
 
 const r = Router();
 
@@ -139,6 +140,19 @@ r.patch('/hyresforhallanden/:id', validate(tenancySchema), catchAsync(async (req
   const t = await Tenancy.findByIdAndUpdate(req.params.id, req.body, { new: true });
   if (!t) throw new AppError('Hyresförhållandet hittades inte', 404);
   res.json({ success: true, data: t });
+}));
+
+r.delete('/hyresgaster/:id', catchAsync(async (req, res) => {
+  const t = await Tenant.findById(req.params.id);
+  if (!t) throw new AppError('Hyresgästen hittades inte', 404);
+  const antal = await Tenancy.countDocuments({ tenant: t._id });
+  if (antal) throw new AppError('Hyresgästen har hyresförhållanden och kan inte tas bort – avsluta eller ta bort dem först, eller använd anonymisering', 400);
+  const dokument = await DocumentFile.find({ tenant: t._id });
+  for (const d of dokument) deleteRel(d.fil);
+  await DocumentFile.deleteMany({ tenant: t._id });
+  if (t.user) await User.findByIdAndDelete(t.user);
+  await t.deleteOne();
+  res.json({ success: true });
 }));
 
 r.delete('/hyresforhallanden/:id', catchAsync(async (req, res) => {
