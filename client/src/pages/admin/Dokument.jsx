@@ -27,14 +27,14 @@ export default function Dokument() {
   const { visa } = useToast();
 
   const { data: docs, laddar, laddaOm } = useAsync(
-    () => admin.dokument({ niva, kategori, sok }).then((r) => r.data),
+    () => admin.dokument({ niva, kategori, sok }),
     [niva, kategori, sok],
   );
   const { data: underlag } = useAsync(() => Promise.all([
     admin.fastigheter().then((r) => r.data),
     admin.objektLista().then((r) => r.data),
     admin.hyresgaster().then((r) => r.data),
-  ]), []);
+  ]).then((allt) => ({ data: allt })), []);
   const [fastigheter, objekt, hyresgaster] = underlag || [[], [], []];
 
   const oppnaNy = () => { setForm(TOM); setFil(null); rensa(); setNyPanel(true); };

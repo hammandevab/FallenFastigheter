@@ -19,7 +19,7 @@ export default function Faq() {
   const { fel, sattFel, rensa } = useFormFel();
   const { visa } = useToast();
 
-  const { data, laddar, laddaOm } = useAsync(() => admin.faq().then((r) => r.data), []);
+  const { data, laddar, laddaOm } = useAsync(() => admin.faq(), []);
   const kategorier = data?.kategorier || [];
   const fragor = data?.fragor || [];
 

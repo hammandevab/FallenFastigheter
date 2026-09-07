@@ -32,7 +32,7 @@ export default function Leads() {
   const { visa } = useToast();
 
   const { data: leads, laddar, laddaOm } = useAsync(
-    () => admin.leads({ typ, status, sok }).then((r) => r.data),
+    () => admin.leads({ typ, status, sok }),
     [typ, status, sok],
   );
 

@@ -4,47 +4,49 @@
 
 /* Designtokens (designspec §9.2) – komponenter refererar endast tokens. */
 :root {
-  --background: #FAF9F7;
-  --foreground: #22302B;
-  --primary: #1F4038;
-  --primary-dark: #16302A;
+  --background: #F2F0E9;
+  --foreground: #21282D;
+  --primary: #35596B;
+  --primary-dark: #2A4858;
   --primary-foreground: #FFFFFF;
-  --secondary: #E8E4DC;
-  --accent: #C9A87C;
-  --accent-soft: #F3EAD9;
-  --muted: #F1EFEA;
-  --muted-foreground: #5D6B64;
+  --secondary: #DFE8ED;
+  --accent: #AC9450;
+  --accent-soft: #F0E8D3;
+  --muted: #EBE8DF;
+  --muted-foreground: #5A6670;
   --card: #FFFFFF;
-  --destructive: #B3261E;
-  --border: #E2DED6;
-  --input: #E2DED6;
-  --ring: #1F4038;
+  --destructive: #A63A2E;
+  --border: #DEDACC;
+  --input: #DEDACC;
+  --ring: #AC9450;
   --radius: 0.75rem;
-  --status-ny: #2563EB;
-  --status-pagaende: #B45309;
-  --status-vantar: #6B7280;
-  --status-atgardad: #15803D;
-  --status-stangd: #374151;
+  --status-ny: #3E6B85;
+  --status-pagaende: #8A6D2F;
+  --status-vantar: #64707A;
+  --status-atgardad: #3E7A4E;
+  --status-stangd: #3A444C;
 
   /* RGB-tripletter för Tailwinds opacity-modifierare (samma kulörer som ovan). */
-  --background-rgb: 250 249 247;
-  --foreground-rgb: 34 48 43;
-  --primary-rgb: 31 64 56;
-  --primary-dark-rgb: 22 48 42;
+  --background-rgb: 242 240 233;
+  --foreground-rgb: 33 40 45;
+  --primary-rgb: 53 89 107;
+  --primary-dark-rgb: 42 72 88;
   --primary-foreground-rgb: 255 255 255;
-  --secondary-rgb: 232 228 220;
-  --accent-rgb: 201 168 124;
-  --accent-soft-rgb: 243 234 217;
-  --muted-rgb: 241 239 234;
-  --muted-foreground-rgb: 93 107 100;
+  --secondary-rgb: 223 232 237;
+  --accent-rgb: 172 148 80;
+  --accent-soft-rgb: 240 232 211;
+  --muted-rgb: 235 232 223;
+  --muted-foreground-rgb: 90 102 112;
   --card-rgb: 255 255 255;
-  --destructive-rgb: 179 38 30;
-  --border-rgb: 226 222 214;
-  --status-ny-rgb: 37 99 235;
-  --status-pagaende-rgb: 180 83 9;
-  --status-vantar-rgb: 107 114 128;
-  --status-atgardad-rgb: 21 128 61;
-  --status-stangd-rgb: 55 65 81;
+  --destructive-rgb: 166 58 46;
+  --border-rgb: 222 218 204;
+  --status-ny-rgb: 62 107 133;
+  --status-pagaende-rgb: 138 109 47;
+  --status-vantar-rgb: 100 112 122;
+  --status-atgardad-rgb: 62 122 78;
+  --status-stangd-rgb: 58 68 76;
+  --kanal: #7FA6B8;
+  --kanal-rgb: 127 166 184;
 }
 
 html { scroll-behavior: smooth; }
@@ -67,10 +69,10 @@ body { @apply bg-bg text-ink font-sans antialiased; }
 
   .btn { @apply inline-flex items-center justify-center gap-2 rounded font-semibold transition-colors duration-150 px-5 py-3 text-[15px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 disabled:opacity-60 disabled:pointer-events-none; }
   .btn-primary { @apply btn bg-primary text-primary-ink hover:bg-primary-dark; }
-  .btn-secondary { @apply btn bg-secondary text-ink hover:bg-[#DDD7CB]; }
+  .btn-secondary { @apply btn bg-secondary text-ink hover:bg-[#CFDEE6]; }
   .btn-outline { @apply btn border border-line bg-card text-ink hover:border-primary hover:text-primary; }
   .btn-ghost { @apply btn px-3 py-2 text-primary hover:bg-muted; }
-  .btn-destructive { @apply btn bg-destructive text-white hover:bg-[#951F19]; }
+  .btn-destructive { @apply btn bg-destructive text-white hover:bg-[#8E3024]; }
   .btn-sm { @apply px-3.5 py-2 text-sm; }
 
   .card { @apply bg-card rounded-xl border border-line shadow-card; }
@@ -94,4 +96,4 @@ body { @apply bg-bg text-ink font-sans antialiased; }
 
 /* Leaflet-behållare */
 .leaflet-container { @apply rounded-xl z-0; font: inherit; }
-.map-marker { background: var(--primary); border: 3px solid #fff; border-radius: 9999px; box-shadow: 0 1px 4px rgb(0 0 0 / .35); }
+.map-marker { background: var(--destructive); border: 3px solid #fff; border-radius: 9999px; box-shadow: 0 1px 4px rgb(0 0 0 / .35); }

@@ -16,6 +16,7 @@ export default {
         accent: { DEFAULT: c('--accent-rgb'), soft: c('--accent-soft-rgb') },
         muted: { DEFAULT: c('--muted-rgb'), ink: c('--muted-foreground-rgb') },
         card: c('--card-rgb'),
+        kanal: c('--kanal-rgb'),
         destructive: c('--destructive-rgb'),
         line: c('--border-rgb'),
         status: {
@@ -26,12 +27,15 @@ export default {
           stangd: c('--status-stangd-rgb'),
         },
       },
-      fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+      fontFamily: {
+        sans: ['Manrope', 'system-ui', 'sans-serif'],
+        logo: ['"Century Schoolbook"', '"Century Schoolbook L"', 'C059', 'Georgia', 'serif'],
+      },
       borderRadius: { DEFAULT: 'var(--radius)', lg: 'var(--radius)', xl: 'calc(var(--radius) + 0.25rem)' },
       maxWidth: { site: '76rem' },
       boxShadow: {
-        card: '0 1px 2px rgb(34 48 43 / 0.05), 0 4px 16px rgb(34 48 43 / 0.06)',
-        lift: '0 2px 4px rgb(34 48 43 / 0.06), 0 12px 32px rgb(34 48 43 / 0.12)',
+        card: '0 1px 2px rgb(33 40 45 / 0.05), 0 4px 16px rgb(33 40 45 / 0.06)',
+        lift: '0 2px 4px rgb(33 40 45 / 0.06), 0 12px 32px rgb(33 40 45 / 0.12)',
       },
     },
   },

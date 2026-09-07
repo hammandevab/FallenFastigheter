@@ -42,9 +42,9 @@ export default function Installningar() {
   const [sparar, setSparar] = useState(false);
   const { visa } = useToast();
 
-  const { data: installningar } = useAsync(() => admin.installningar().then((r) => r.data), []);
-  const { data: logg, laddar: loggLaddar, laddaOm: laddaOmLogg } = useAsync(() => admin.epostlogg().then((r) => r.data), []);
-  const { data: diagnostik } = useAsync(() => admin.diagnostik().then((r) => r.data), []);
+  const { data: installningar } = useAsync(() => admin.installningar(), []);
+  const { data: logg, laddar: loggLaddar, laddaOm: laddaOmLogg } = useAsync(() => admin.epostlogg(), []);
+  const { data: diagnostik } = useAsync(() => admin.diagnostik(), []);
 
   useEffect(() => { if (installningar && !form) setForm(installningar); }, [installningar, form]);
 

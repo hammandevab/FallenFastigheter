@@ -21,7 +21,7 @@ export default function Utveckling() {
   const { data, laddar, laddaOm } = useAsync(() => Promise.all([
     admin.utveckling().then((r) => r.data),
     admin.fastigheter().then((r) => r.data),
-  ]), []);
+  ]).then((allt) => ({ data: allt })), []);
   const [projekt, fastigheter] = data || [[], []];
 
   const oppnaNy = () => { setForm(TOM); rensa(); setPanel({ projekt: null }); };

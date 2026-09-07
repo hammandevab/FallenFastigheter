@@ -37,7 +37,7 @@ export default function ObjektDetalj({ typ }) {
     ? [[attr.balkong, 'Balkong'], [attr.hiss, 'Hiss'], [attr.forradIngar, 'Förråd ingår'], [attr.parkering, 'Parkering']]
     : [[attr.takhojd, `Takhöjd ${attr.takhojd} m`], [attr.lastintag, 'Lastintag'], [attr.skyltlage, 'Skyltläge']];
   const fakta = [
-    ['Typ', o.typ === 'bostad' ? 'Bostad' : `Lokal · ${lokaltypNamn(o.lokaltyp)}`],
+    ['Typ', o.typ === 'bostad' ? 'Bostad' : o.lokaltyp ? `Lokal · ${lokaltypNamn(o.lokaltyp)}` : 'Lokal'],
     o.rum && ['Rum', `${o.rum} rum`],
     o.ytaM2 && ['Yta', `${o.ytaM2} m²`],
     o.vaning != null && o.vaning !== '' && ['Våning', o.vaning],

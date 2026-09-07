@@ -22,7 +22,7 @@ export default function Anvandare() {
   const { fel, sattFel, rensa } = useFormFel();
   const { visa } = useToast();
 
-  const { data: users, laddar, laddaOm } = useAsync(() => admin.anvandare().then((r) => r.data), []);
+  const { data: users, laddar, laddaOm } = useAsync(() => admin.anvandare(), []);
 
   const skapa = async (e) => {
     e.preventDefault();

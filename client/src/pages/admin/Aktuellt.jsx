@@ -25,7 +25,7 @@ export default function Aktuellt() {
   const { data, laddar, laddaOm } = useAsync(() => Promise.all([
     admin.aktuellt().then((r) => r.data),
     admin.fastigheter().then((r) => r.data),
-  ]), []);
+  ]).then((allt) => ({ data: allt })), []);
   const [poster, fastigheter] = data || [[], []];
   const visade = (poster || []).filter((p) => statusFilter === 'alla' || p.status === statusFilter);
 
