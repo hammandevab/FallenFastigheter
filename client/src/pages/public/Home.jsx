@@ -51,21 +51,21 @@ export default function Home() {
   return (
     <>
       {/* 1. Hero */}
-      <section className="relative isolate overflow-hidden bg-primary-dark text-white">
+      <section className="relative isolate overflow-hidden bg-kanal text-ink">
         <img src="/images/hero.jpg" alt="" aria-hidden="true" fetchpriority="high"
-          className="absolute inset-0 h-full w-full object-cover opacity-60" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/70 to-primary-dark/30" aria-hidden="true" />
+          className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-r from-kanal via-kanal/75 to-transparent" aria-hidden="true" />
         <div className="container-site relative py-24 md:py-36">
-          <p className="overline-badge !text-accent">Trollhättan · Vänersborg</p>
+          <p className="overline-badge !text-primary-dark">Trollhättan · Vänersborg</p>
           <h1 className="h1 mt-4 max-w-3xl">Vi ser möjligheterna i våra fastigheter.</h1>
-          <p className="ingress mt-5 max-w-2xl !text-white/85">
+          <p className="ingress mt-5 max-w-2xl !text-ink/80">
             Fallens Fastigheter är en aktiv och lyhörd fastighetsägare med hyresbostäder, lokaler och
             fastighetsförvaltning i Trollhättan och Vänersborg. Vi finns nära våra hus och våra hyresgäster.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link to="/bostader" className="btn-primary !bg-destructive hover:!bg-[#8E3024]">Jag söker bostad</Link>
-            <Link to="/lokaler" className="btn bg-white/12 text-white border border-white/30 hover:bg-white/20">Jag söker lokal</Link>
-            <Link to="/hyresgast" className="btn bg-white/12 text-white border border-white/30 hover:bg-white/20">Jag är hyresgäst</Link>
+            <Link to="/bostader" className="btn-primary !bg-destructive hover:!bg-[#99402F]">Jag söker bostad</Link>
+            <Link to="/lokaler" className="btn bg-white/70 text-ink border border-ink/15 hover:bg-white">Jag söker lokal</Link>
+            <Link to="/hyresgast" className="btn bg-white/70 text-ink border border-ink/15 hover:bg-white">Jag är hyresgäst</Link>
           </div>
         </div>
       </section>
@@ -139,7 +139,7 @@ export default function Home() {
       </section>
 
       {/* 7. Hyresgäst */}
-      <section className="section bg-primary-dark text-white">
+      <section className="section bg-ink text-white">
         <div className="container-site">
           <h2 className="h2">Är du redan hyresgäst?</h2>
           <p className="ingress mt-3 !text-white/80 max-w-2xl">Här hittar du snabbaste vägen till hjälp och information.</p>

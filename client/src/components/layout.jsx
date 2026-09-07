@@ -99,7 +99,7 @@ export function SiteFooter() {
     ['Fallens', [['Om Fallens', '/om-fallens'], ['Så arbetar vi', '/om-fallens/sa-arbetar-vi'], ['Vi utvecklar', '/utveckling'], ['Förvaltning', '/forvaltning'], ['Kontakt', '/kontakt']]],
   ];
   return (
-    <footer className="bg-primary-dark text-white/85 mt-auto">
+    <footer className="bg-ink text-white/85 mt-auto">
       <div className="container-site py-14">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
