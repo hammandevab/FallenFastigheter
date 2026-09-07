@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { HeroScen } from '../../components/HeroScen.jsx';
 import { usePageMeta } from '../../lib/meta.js';
 import { useSite } from '../../context/SiteContext.jsx';
 import { pub } from '../../lib/api.js';
@@ -21,7 +22,7 @@ function Teaser({ rubrik, under, objekt, laddar, tomRubrik, tomText, tomCta, lis
             <h2 className="h2">{rubrik}</h2>
             <p className="ingress mt-2">{under}</p>
           </div>
-          <Link to={listLank} className="btn-outline btn-sm shrink-0">{listText}</Link>
+          <Link to={listLank} className="btn-accent btn-sm shrink-0">{listText}</Link>
         </div>
         {laddar ? <PageSpinner /> : objekt.length === 0 ? (
           <EmptyState rubrik={tomRubrik} text={tomText} cta={tomCta} ctaTill={ankareLank} />
@@ -52,9 +53,8 @@ export default function Home() {
     <>
       {/* 1. Hero */}
       <section className="relative isolate overflow-hidden bg-kanal text-ink">
-        <img src="/images/hero.jpg" alt="" aria-hidden="true" fetchpriority="high"
-          className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-kanal via-kanal/75 to-transparent" aria-hidden="true" />
+        <HeroScen />
+        <div className="absolute inset-0 bg-gradient-to-b from-kanal/95 via-kanal/40 to-transparent sm:bg-gradient-to-r sm:from-kanal/95 sm:via-kanal/60 sm:to-transparent" aria-hidden="true" />
         <div className="container-site relative py-24 md:py-36">
           <p className="overline-badge !text-primary-dark">Trollhättan · Vänersborg</p>
           <h1 className="h1 mt-4 max-w-3xl">Vi ser möjligheterna i våra fastigheter.</h1>
