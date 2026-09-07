@@ -63,7 +63,7 @@ export default function Home() {
             fastighetsförvaltning i Trollhättan och Vänersborg. Vi finns nära våra hus och våra hyresgäster.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Link to="/bostader" className="btn-primary !bg-accent !text-ink hover:!bg-[#B8965F]">Jag söker bostad</Link>
+            <Link to="/bostader" className="btn-primary !bg-destructive hover:!bg-[#8E3024]">Jag söker bostad</Link>
             <Link to="/lokaler" className="btn bg-white/12 text-white border border-white/30 hover:bg-white/20">Jag söker lokal</Link>
             <Link to="/hyresgast" className="btn bg-white/12 text-white border border-white/30 hover:bg-white/20">Jag är hyresgäst</Link>
           </div>
