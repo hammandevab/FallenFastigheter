@@ -7,10 +7,10 @@ import { useSite } from '../context/SiteContext.jsx';
 const NAV = [
   ['Bostäder', '/bostader'],
   ['Lokaler', '/lokaler'],
-  ['Våra fastigheter', '/fastigheter'],
+  ['Fastigheter', '/fastigheter'],
   ['Hyresgäst', '/hyresgast'],
   ['Förvaltning', '/forvaltning'],
-  ['Om Fallens', '/om-fallens'],
+  ['Om', '/om-fallens'],
   ['Kontakt', '/kontakt'],
 ];
 
@@ -94,9 +94,9 @@ export function SiteFooter() {
   const k = site?.installningar || {};
   const kontaktRad = [k.besoksadress, k.telefon, k.epost].filter(Boolean).join(' · ');
   const kolumner = [
-    ['Hyra av oss', [['Lediga bostäder', '/bostader'], ['Lediga lokaler', '/lokaler'], ['Våra fastigheter', '/fastigheter']]],
+    ['Hyra av oss', [['Lediga bostäder', '/bostader'], ['Lediga lokaler', '/lokaler'], ['Fastigheter', '/fastigheter']]],
     ['Hyresgäst', [['Felanmälan', '/felanmalan'], ['Hyra & betalning', '/hyresgast/hyra'], ['Vanliga frågor', '/hyresgast/faq'], ['Aktuell information', '/hyresgast/aktuellt']]],
-    ['Fallens', [['Om Fallens', '/om-fallens'], ['Så arbetar vi', '/om-fallens/sa-arbetar-vi'], ['Vi utvecklar', '/utveckling'], ['Förvaltning', '/forvaltning'], ['Kontakt', '/kontakt']]],
+    ['Fallens', [['Om', '/om-fallens'], ['Så arbetar vi', '/om-fallens/sa-arbetar-vi'], ['Vi utvecklar', '/utveckling'], ['Förvaltning', '/forvaltning'], ['Kontakt', '/kontakt']]],
   ];
   return (
     <footer className="bg-ink text-white/85 mt-auto">
