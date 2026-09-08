@@ -4,7 +4,7 @@
  *  alltid visar staden, inte tom gradient. */
 const BENVIT = '#F2F0E9';
 const TEGEL = '#AF4A38';
-const MASSING = '#C9A24E';
+const MASSING = '#AC9450'; // koppar enligt spec: C25/M35/Y65/K10
 const FASADER = ['#A9C6D4', '#6E96AB', '#5F889D', '#BCD4DF'];
 
 const HUS = [
